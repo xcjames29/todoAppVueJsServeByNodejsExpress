@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Sample Vue App</title>
+</head>
+<body>
+    <div id="app">
+        
+        <div class="header">
+            <h1>To do List</h1>
+            <div class="wrapper">
+                <label for="todoInput">Enter To do: </label>
+                <input type="text" name="todoInput" id="todoInput" />
+            </div>
+            <button class="addBtn" v-on:click="addToList" >Add to List</button>
+        </div>
+        <div class="content">
+            
+            <div class="leftTodo">
+                <h1 class="title">Todo</h1>
+                <div v-for='samp in todoList' class="card" >
+                    <h1>{{ samp }}</h1>
+                    <div class="buttonWrapper">
+                        <button v-on:click="finishTodo(samp)" class="finishBtn">Finish</button>
+                        <button v-on:click="deleteFromList(samp)" class="deleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rightFinished">
+                <h1 class="title">Finished Tasks</h1>
+                <div v-for='samp in finishedTask' class="card" >
+                    <h1>{{ samp }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
